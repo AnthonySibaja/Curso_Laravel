@@ -18,18 +18,26 @@ use Illuminate\Support\Facades\Route;
 //});
 
 use App\Http\Controllers\PostController; //
+//////////Llamar metodos de controller a router////////////////
 
-Route::get('/post', [PostController::class, 'index']); 
+//Route::get('/post/{id}', [PostController::class, 'index']);
+//Route::resource('posts', 'App\Http\Controllers\PostController');
 
 
-//////////////Practica//////////////////////
+/////////////Trabajando con view////////////////
+Route::get('/contact', [PostController::class, 'contact']);
+Route::get('post/{id}/{name}/{password}', 'App\Http\Controllers\PostController@show_post');
+
+//Practica de router como poner direcciones como tambien 
+//pasar parametros y url en la que estamos
+
 //Route::get('/about', function () {
     //return "Hi about page";
 //});
+
 //Route::get('/contact', function () {
    // return "Hi i am contact";
 //});
-
 
 //Route::get('/post/{id}/{name}',function($id, $name){
    // return "this is post number". $id. ' ' .$name;
@@ -38,6 +46,5 @@ Route::get('/post', [PostController::class, 'index']);
 
 //Route::get('admin/posts/example', array('as'=>'admin.home' ,function(){
     //$url = route('admin.home');
-
     //return "this url is ". $url;
 //}));

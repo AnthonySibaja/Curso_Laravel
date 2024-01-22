@@ -12,9 +12,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return "hola mundo";
+           
+        return "el numero de usuario es " . $id;
+     
     }
 
     /**
@@ -24,8 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
-        
+        return "se creo un metodo ";
+
     }
 
     /**
@@ -47,7 +49,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return "el numero de usuario es " . $id;
     }
 
     /**
@@ -82,5 +84,13 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function contact(){
+        return view('contact');
+    }
+    public function show_post($id, $name, $password){
+        //return view('post')->with('id',$id);
+        return view('post', compact('id','name','password'));
     }
 }
