@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Http\Controllers\PostController; //
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,7 @@ use Illuminate\Support\Facades\Route;
   //  return view('welcome');
 //});
 
-use App\Http\Controllers\PostController; //
+
 
 
 
@@ -90,7 +93,7 @@ use App\Http\Controllers\PostController; //
 
 ////////////elocuencia//////////
 
-use App\Models\Post;
+
 
 // Route::get('/find', function(){
 //     $post = Post::all(); 
@@ -175,7 +178,15 @@ use App\Models\Post;
 
 // });
 
-Route::get('/forcedelete', function(){
+// Route::get('/forcedelete', function(){
 
-    Post::withTrashed()->where('id', 6)->forceDelete();
+//     Post::withTrashed()->where('id', 6)->forceDelete();
+// });
+
+///////Relaciones elocuentes/////////////
+Route::get('/user/{id}/post', function($id){
+    return User::find($id)->post->body;
+
+
+
 });
