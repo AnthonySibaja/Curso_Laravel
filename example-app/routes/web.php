@@ -183,10 +183,41 @@ use App\Models\User;
 //     Post::withTrashed()->where('id', 6)->forceDelete();
 // });
 
+
+
+
 ///////Relaciones elocuentes/////////////
-Route::get('/user/{id}/post', function($id){
-    return User::find($id)->post->body;
+// Route::get('/user/{id}/post', function($id){
+//     return User::find($id)->post->body;
 
 
 
+// });
+
+// Route::get('/post/{id}/user', function($id){
+//     return Post::find($id)->user->name;
+    
+// });
+
+// Route::get('/post', function(){
+//     $user =User::find(1);
+
+//    foreach($user->posts as $post){
+//       echo $post->titulo . "<br>";
+
+//    }
+
+// });
+
+
+////////// Relaciones entre tablas///////////
+
+Route::get('/user/{id}/role', function($id){
+  $user = User::find($id)->roles()->orderBy('id','desc')->get();
+
+  return $user;
+
+  // foreach($user->roles as $role){
+  //   return $role->name;
+  // }
 });
