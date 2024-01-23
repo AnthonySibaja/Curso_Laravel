@@ -55,10 +55,10 @@ use App\Http\Controllers\PostController; //
 ////base de datos ////
 
 ///////////Insertar datos/////////////////////
-//Route::get('/insert', function(){
-  //DB::insert('insert into post(titulo, body) values(?, ?)', ['PHP con laravel', 'Laravel es muy completo y está bien tuanis para aprenderlo']);
+// Route::get('/insert', function(){
+//   DB::insert('insert into post(titulo, body) values(?, ?)', ['Php laravel', 'Laravel es muy completo y está bien tuanis para aprenderlo']);
 
-//});
+// });
 
 ///////////leer datos/////////////////////
 
@@ -92,12 +92,90 @@ use App\Http\Controllers\PostController; //
 
 use App\Models\Post;
 
-Route::get('/find', function(){
-    $post = Post::all(); 
+// Route::get('/find', function(){
+//     $post = Post::all(); 
     
 
-    foreach($post as $post) {
-       return $post->titulo;
-    }
+//     foreach($post as $post) {
+//        return $post->titulo;
+//     }
 
+// });
+
+// Route::get('/find', function(){
+
+//     $post = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
+//     return $post;
+
+// });
+
+// Route::get('/findmore',function(){
+
+//   $post =Post::findOrFail(1);
+//   return $post;
+
+//   // $post =Post::where('users_count','<',50)->findOrFail;
+  
+// });
+
+// Route::get('/basicinsert', function(){
+//   $post = new Post;
+//   $post ->titulo='nuevo titulo';
+//   $post ->body ='el perro ladro pepe';
+//   $post->save();
+
+// });
+
+// Route::get('/basicinsert', function(){
+//   $post = Post::find(1);
+//   $post ->titulo='nuevo titulo';
+//   $post ->body ='el perro ladro pepe';
+//   $post->save();
+
+// });
+
+// Route::get('/create', function(){
+//      Post::create(['titulo'=>'creando metodo','body'=>'Wow EL PERRO LADRO']);
+    
+// });
+
+//  Route::get('/update', function(){
+//      Post::where('id',2)->update(['titulo'=>'Actualizacion del el pepe perro','body'=>'El perro pepe ahora volo']);
+  
+// });
+
+// Route::get('/delete', function(){
+
+//     $post=Post::find(1);
+
+//     $post->delete();
+
+// });
+
+// Route::get('/delete2', function(){
+//     Post::destroy([2,3]);
+    
+// });
+
+// Route::get('/softdelete', function(){
+//     Post::find(5)->delete();
+// });
+
+// Route::get('/readsotfdelete', function(){
+//       //  $post = Post::find(6);
+//       //  return $post;
+
+//       $post = Post::onlyTrashed()->where('id', 4 )->get();
+//       return $post;
+// });
+
+
+// Route::get('/restore', function(){
+//     Post::withTrashed()->where('id', 0)->restore();
+
+// });
+
+Route::get('/forcedelete', function(){
+
+    Post::withTrashed()->where('id', 6)->forceDelete();
 });
