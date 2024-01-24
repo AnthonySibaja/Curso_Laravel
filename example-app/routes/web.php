@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\PostController; //
 use App\Models\User;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -212,12 +213,32 @@ use App\Models\User;
 
 ////////// Relaciones entre tablas///////////
 
-Route::get('/user/{id}/role', function($id){
-  $user = User::find($id)->roles()->orderBy('id','desc')->get();
+// Route::get('/user/{id}/role', function($id){
+//   $user = User::find($id)->roles()->orderBy('id','desc')->get();
 
-  return $user;
+//   return $user;
 
   // foreach($user->roles as $role){
   //   return $role->name;
   // }
-});
+// });
+
+
+//acceder a la relación entre tablas intermedia
+
+// Route::get('/user/pivot', function(){
+//   $user = User::find(1);
+//   foreach($user->roles as $role){
+//     echo $role->pivot->created_at;
+//   }
+// });
+
+
+// Route::get('/user/country', function(){
+//     $country = Country::find(1);
+//     foreach($country->post as $post){
+//       return $post->titulo;
+//     }
+// });
+
+
