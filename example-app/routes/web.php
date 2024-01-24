@@ -5,6 +5,8 @@ use App\Models\Post;
 use App\Http\Controllers\PostController; //
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Photo;
+use App\Models\tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -242,3 +244,40 @@ use App\Models\Country;
 // });
 
 
+//// Poliformismo en relaciones
+// Route::get('/user/photos',function(){
+  
+//     $post = Post::find(1);
+//     foreach($post->photos as $photo){
+//         echo $photo->path ."<br>";
+//   }
+// });
+
+
+// Route::get('/photo/{id}/post', function($id){
+//     $photo = Photo::findOrFail($id);
+//     return $photo->imageable;
+
+
+// });
+
+
+
+//// Poliformismo en relaciones muchos a muchos
+
+// Route::get('/post/tag', function(){
+//       $post = Post::find(1);
+//       foreach($post->tags as $tag){
+//         return $tag->name;
+//       }
+// });
+
+
+Route::get('/tag/post', function(){
+    $tag = Tag::find(2);
+    foreach($tag->post as $post){
+      echo $post->titulo;
+    }
+    //return $tag;
+
+});

@@ -25,3 +25,8 @@ para ver las migraciones: php artisan migrate:status
 
 ==Modelos===
 apra crearlos:php artisan make:model "name"
+
+}
+///////////////////tinker////////////////////////
+
+entrar $ php artisan tinker

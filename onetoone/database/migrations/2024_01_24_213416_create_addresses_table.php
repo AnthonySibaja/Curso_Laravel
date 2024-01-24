@@ -13,22 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            //$table->Integer('user_id')->unsigned;
-            $table->string('titulo');
-            $table->text('body');
+            $table->integer('user_id')->usigned()->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
 
-    /**s
+    /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('addresses');
     }
 };

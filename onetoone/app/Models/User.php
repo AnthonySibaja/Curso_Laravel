@@ -42,30 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function post(){
-        
-        return $this->hasOne('App\Models\Post'); 
-        
+    public function address(){
+        return $this->hasOne('App\Models\Address');
     }
-
-    public function posts(){
-        
-        return $this->hasMany('App\Models\Post');
-    }
-
-    public function roles(){
-        //personalizar el nombre de las tablas y la columna
-        //return $this->belongsToMany('App\Models\Role', 'user_roles', 'user_id','role_id');
-        return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
-
-    }
-
-    
-    public function photos(){
-        return $this->morphMany('App\Models\Photo','imageable');
-    }
-
-
-
-    
 }
