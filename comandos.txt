@@ -1,4 +1,6 @@
 ==Controladores y listas===
+
+crear un modelo con una migracion:php artisan make:model "name" -m
 crear controladore:php artisan make:controller "name"
 
 crear con mas metodos:php artisan make:--resource "name"
