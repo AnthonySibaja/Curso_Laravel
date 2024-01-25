@@ -273,11 +273,26 @@ use App\Models\tag;
 // });
 
 
-Route::get('/tag/post', function(){
-    $tag = Tag::find(2);
-    foreach($tag->post as $post){
-      echo $post->titulo;
-    }
-    //return $tag;
+// Route::get('/tag/post', function(){
+//     $tag = Tag::find(2);
+//     foreach($tag->post as $post){
+//       echo $post->titulo;
+//     }
+//     //return $tag;
 
-});
+// });
+
+/*
+|--------------------------------------------------------------------------
+| CRUD application
+|--------------------------------------------------------------------------
+*/
+
+
+
+Route::get('/posts', 'PostController');
+
+
+
+
+

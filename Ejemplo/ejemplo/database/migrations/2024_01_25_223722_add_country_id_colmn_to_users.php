@@ -13,22 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
-            $table->id();
-            $table->Integer('user_id')->unsigned;
-            $table->string('titulo');
-            $table->text('body');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('country_id');
+            
         });
     }
 
-    /**s
+    /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('country_id');
+        });
     }
 };
