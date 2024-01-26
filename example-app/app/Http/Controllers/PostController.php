@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
 class PostController extends Controller
 {
@@ -12,6 +15,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
     public function index()
     {
            
@@ -49,7 +54,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return "el numero de usuario es " . $id;
+        return "el numero de usuario es " .$id;
     }
 
     /**
@@ -86,15 +91,15 @@ class PostController extends Controller
         //
     }
 
-    public function contact(){
+    // public function contact(){
 
-        $person =['pepe','martinez','jose luis'];
-        return view('contact', compact('person'));
-    }
+    //     $person =['pepe','martinez','jose luis'];
+    //     return view('contact', compact('person'));
+    // }
 
 
-    public function show_post($id, $name, $password){
-        //return view('post')->with('id',$id);
-        return view('post', compact('id','name','password'));
-    }
+    // public function show_post($id, $name, $password){
+    //     //return view('post')->with('id',$id);
+    //     return view('post', compact('id','name','password'));
+    // }
 }

@@ -19,9 +19,9 @@ use App\Models\tag;
 |
 */
 
-//Route::get('/', function () {
-  //  return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 
@@ -290,7 +290,7 @@ use App\Models\tag;
 
 
 
-Route::get('/posts', 'PostController');
+Route::get('/post', 'PostController');
 
 
 
